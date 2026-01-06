@@ -249,6 +249,9 @@ footer {
     border-radius: 50%;
     background-image: url("Yellow Inspiration Modern Instagram Profile Picture.png");
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .secondimage:hover {

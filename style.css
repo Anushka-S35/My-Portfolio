@@ -1,0 +1,545 @@
+:root {
+    --primary-color: #00f3ff;
+    /* Cyan */
+    --secondary-color: #bd00ff;
+    /* Purple */
+    --accent-color: #00ff66;
+    /* Neon Green */
+    --bg-color: #050505;
+    /* Deep Black */
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.343);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#cursor {
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    border: 1px solid white;
+    background-color: var(--glass-bg);
+    pointer-events: none;
+    position: fixed;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-90%, -90%);
+    backdrop-filter: scale(100px) blur(50px) brightness(10);
+}
+
+#cursor:hover {
+    transform: scale(1.5)
+}
+
+#cursor h5 {
+    color: white;
+
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+
+}
+
+/* Main Container */
+.mainbackground {
+    position: relative;
+    width: 100%;
+
+    background-color: var(--bg-color);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animations will be on a canvas behind this, z-index of canvas set in JS to 1 */
+/* Content wrapper needs higher z-index */
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Navbar top, content center/bottom */
+    padding: 2rem;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1vw 1vw;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 50vw;
+    border: 1px solid var(--glass-border);
+    margin: 0.5rem auto;
+    width: 94%;
+    max-width: 1250vw;
+}
+
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2vw;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1vw;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: rgb(67, 224, 107);
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Hero Section */
+.hero-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.main-text {
+    font-size: 6vw;
+    font-weight: 700;
+    line-height: 1.1;
+    background: linear-gradient(135deg, rgb(0, 220, 132) 0%, rgb(97, 87, 237) 50%, purple 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 1vw;
+    margin-left: 15%;
+    animation: fadeInDown 1s ease-out;
+}
+
+.sub-text {
+    font-size: 2vw;
+    font-weight: 300;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-left: 15%;
+    margin-top: 5vw;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.sub-text span {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2vw;
+    font-size: 0.9vw;
+    color: rgba(255, 255, 255, 0.6);
+    z-index: 10;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-text {
+        font-size: 4vw;
+    }
+
+    .sub-text {
+        font-size: 1.5vw;
+    }
+
+    .navbar {
+        width: 100%;
+        border-radius: 0;
+        justify-content: center;
+    }
+}
+
+
+#sectionone {
+    height: 40vw;
+    width: 80vw;
+    margin-left: 4vw;
+    margin-top: 15vw;
+
+    border-radius: 50px;
+    background: transparent;
+    /*backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-border);*/
+}
+
+.sectiontwo {
+    height: 40vw;
+    width: 60vw;
+    margin-left: 4vw;
+    margin-top: 15vw;
+    background-color: rgb(66, 11, 156);
+    display: flex;
+}
+
+
+
+.backgroundsecond {
+    background-color: var(--glass-bg);
+    height: 200%;
+    width: 100%;
+}
+
+
+
+.secondimage {
+    height: 50%;
+    width: 26%;
+
+    margin-left: 40%;
+
+    margin-top: 5%;
+    border: 2px solid var(--glass-border);
+    border-radius: 50%;
+    background-image: url("Yellow Inspiration Modern Instagram Profile Picture.png");
+
+}
+
+.secondimage:hover {
+    color: rgb(245, 248, 246);
+    box-shadow: 0 0 10px var(--primary-color);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.othermain-text {
+    font-size: 4vw;
+    font-weight: 700;
+    line-height: 1.1;
+    background: linear-gradient(135deg, rgb(0, 220, 132) 0%, rgb(97, 87, 237) 50%, purple 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 5%;
+    margin-top: 5%;
+    opacity: 0.9;
+    animation: fadeInDown 1s ease-out;
+    font-family: serif;
+}
+
+.othermain-text:hover {
+    color: #aff5f9;
+    font-weight: 900;
+
+}
+
+.othersub-text {
+    font-size: 1.5vw;
+    font-weight: 300;
+    color: rgb(232, 231, 231);
+    opacity: 0.9;
+    margin-left: 5%;
+    margin-right: 50%;
+    margin-top: 3rem;
+    font-family: serif;
+    display: flex;
+}
+
+
+
+
+.grid-container {
+    display: grid;
+    /* Activates CSS Grid */
+    grid-template-columns: 1fr 1fr;
+    /* Creates two equal-width columns (1 fraction each) */
+    gap: 20px;
+    /* Adds space between the columns */
+    align-items: center;
+    /* Vertically centers the items */
+}
+
+.grid-container2skills {
+    display: grid;
+    /* Activates CSS Grid */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* Creates two equal-width columns (1 fraction each) */
+    gap: 1.5vw;
+    /* Adds space between the columns */
+    align-items: center;
+    column-gap: 1px;
+    justify-items: center;
+    /* Vertically centers the items */
+
+}
+
+.image-column img {
+    max-width: 100%;
+    /* Ensures the image is responsive */
+    max-height: 70%;
+    display: block;
+    margin-top: 20%;
+    border-radius: 10%;
+}
+
+
+/* Add media queries to make it responsive on smaller screens */
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        /* Stacks columns on top of each other on small screens */
+    }
+}
+
+/* Add media queries to make it responsive on smaller screens */
+
+
+.skills-container {
+
+    width: 100%;
+    /* changed */
+    max-width: 420px;
+    /* changed */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50px;
+    border: 2px solid var(--glass-border);
+    background-color: var(--glass-bg);
+}
+
+.skills-container:hover {
+    color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(4, 223, 147, 0.92);
+    cursor: pointer;
+    background-attachment: fixed;
+    background-color: var(--glass-bg);
+}
+
+.skills-name {
+
+    line-height: 3.1;
+    color: var(--text-color);
+    font-size: 1.6vw;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0.9;
+    animation: fadeIn 1s ease-out;
+
+    font-family: serif;
+}
+
+/* .skills-name :hover {
+    color: rgb(47, 4, 54);
+    font-weight: 600;
+    cursor: pointer;
+    background-color: rgb(162, 110, 211);
+} */
+
+.animated-underline {
+    position: relative;
+    /* Required for absolute positioning of the pseudo-element */
+    text-decoration: none;
+    /* Remove default underline */
+    color: var(--text-color);
+    /* Optional: keeps text color consistent */
+}
+
+.animated-underline::after {
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 5px;
+    /* Underline thickness */
+    bottom: 0;
+    /* Position just below the text */
+    left: 0;
+    background-color: rgb(3, 207, 149);
+    /* Matches the text color */
+    transform: scaleX(0);
+    /* Hide the underline by default */
+    transform-origin: bottom right;
+    /* Animation start point (right, left, center) */
+    transition: transform 0.25s ease-out;
+    /* Smooth transition */
+}
+
+.animated-underline:hover::after {
+    transform: scaleX(1);
+    /* Show the underline on hover */
+    transform-origin: bottom left;
+    /* Animation end point */
+}
+
+.contact-section {
+    text-align: center;
+    height: 10vw;
+    background-color: black;
+    margin-top: 12%;
+}
+
+.contact-section h2 {
+    font-size: 2.5vw;
+    margin-top: 8vw;
+    color: white;
+    font-weight: 30;
+    font-family: serif;
+}
+
+.contact-bar {
+    display: flex;
+    gap: 4vw;
+    /* spacing between icons */
+    padding: 1.2vw 2vw;
+    justify-content: center;
+    align-items: center;
+
+    background: black;
+    backdrop-filter: blur(12px);
+
+    border-radius: 60px;
+
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.contact-bar a {
+    width: 48px;
+    height: 48px;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.3s ease;
+}
+
+.contact-bar a svg {
+    width: 24px;
+    height: 24px;
+    fill: #00ff66;
+    /* your green */
+}
+
+.contact-bar a:hover {
+    background: rgba(0, 255, 102, 0.15);
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.6);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+        /* safety */
+    }
+
+    .main-text {
+        font-size: 3vw;
+        /* smaller text */
+        margin-left: 0;
+        /* kill desktop offset */
+        text-align: center;
+        /* readable */
+    }
+
+    .sub-text {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .sectiontwo,
+    #sectionone,
+    .backgroundsecond {
+        width: 100%;
+        /* stop overflow */
+        margin-left: 0;
+        /* stop pushing */
+    }
+
+    .grid-container2skills {
+        grid-template-columns: 1fr;
+        /* stack skills */
+    }
+
+    .backgroundsecond,
+    .sectiontwo,
+    #sectionone {
+        width: 100%;
+        /* changed */
+        margin-left: 0;
+        /* changed */
+    }
+
+    .skills-container {
+        width: 90%;
+        /* changed */
+        margin-left: auto;
+        /* changed */
+        margin-right: auto;
+        /* changed */
+    }
+
+    .main-text,
+    .sub-text {
+        margin-left: 0;
+        /* changed */
+        text-align: center;
+        /* changed */
+    }
+}
